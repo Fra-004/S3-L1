@@ -67,7 +67,7 @@ const utenti = [
 const quadrato = n => n * n;
 
 console.log(quadrato(5));
-
+console.log('-------------------------------------');
 /* ESERCIZIO 2 — Destructuring di oggetto
    Crea un oggetto "persona" con almeno 4 properties (es. nome, cognome, eta, città).
    Estrai 3 properties in 3 variabili usando destructuring.
@@ -87,7 +87,7 @@ const { nome, cognome, eta } = persona;
 console.log(nome);
 console.log(cognome);
 console.log(eta);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 3 — Destructuring nei parametri
    Scrivi una arrow function "riepilogo" che riceve un utente e ritorna
    "Nome Cognome (eta anni)" usando destructuring nei parametri.
@@ -100,7 +100,7 @@ const riepilogo = ({ nome, cognome, eta }) => `${nome} ${cognome} (${eta} anni)`
 console.log(riepilogo(utenti[0]));
 console.log(riepilogo(utenti[1]));
 console.log(riepilogo(utenti[2]));
-
+console.log('-------------------------------------');
 /* ESERCIZIO 4 — Spread su array
    Crea numeri = [1, 2, 3].
    Crea una copia indipendente con spread, fai push(99) sulla copia.
@@ -153,7 +153,7 @@ const nuovoProdotto = {
 };
 
 console.log(nuovoProdotto)
-console.log('-------------------------------------');
+console.log(' esercizio 7: -------------------------------------');
 /* ESERCIZIO 7 — forEach
    Stampa tutti gli utenti nel formato "- Nome Cognome (città)".
    Esempio: "- Mario Rossi (Milano)"
@@ -184,6 +184,8 @@ console.log('-------------------------------------');
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+/* usiamo le parentesi () prima delle graffe perchè devo dire al compilatore che mi deve restituire un oggetto, 
+	senza le tonde il compilatore interpreta il contenuto come il corpo della funzione*/
 const utentiPlus = utenti.map(utente => ({
     ...utente,
     descrizione: `${utente.nome} ${utente.cognome}, ${utente.città}`
@@ -230,7 +232,6 @@ console.log('-------------------------------------');
 /* SCRIVI QUI LA TUA RISPOSTA */
 const totaleEta = utenti.reduce((totale, utente) => totale + utente.eta, 0);
 const etaMedia = totaleEta / utenti.length;
-
 console.log(etaMedia);
 console.log('-------------------------------------');
 
@@ -241,7 +242,11 @@ console.log('-------------------------------------');
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 const etaCrescente = [...utenti].sort((a, b) => a.eta - b.eta);
-const alfabetico = [...utenti].sort((a, b) => a.nome.localeCompare(b.nome, "it"));
+const alfabetico = [...utenti].sort((a,b) => {
+	if(a.nome>b.nome )return 1;
+	if(a.nome<b.nome )return -1;
+	return 0;
+});
 
 console.log(etaCrescente.map(utente => utente.nome));
 console.log('-------------------------------------');
