@@ -116,7 +116,7 @@ copia.push(99);
 
 console.log(numeri);
 console.log(copia);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 5 — Spread per concatenare
    frutti  = ["mela", "banana"]
    verdure = ["carota", "spinaci"]
@@ -130,11 +130,11 @@ const verdure = ["carota", "spinaci"];
 const cibo = [...frutti, ...verdure];
 
 console.log(cibo);
-
+console.log('-------------------------------------');
 const cibo2 = frutti.concat(verdure);
 
 console.log(cibo);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 6 — Spread su oggetto
    prodotto = { nome: "Cuffie", prezzo: 79.99 }
    Crea un nuovo oggetto con "disponibile: true" aggiunto, senza modificare prodotto.
@@ -153,7 +153,7 @@ const nuovoProdotto = {
 };
 
 console.log(nuovoProdotto)
-
+console.log('-------------------------------------');
 /* ESERCIZIO 7 — forEach
    Stampa tutti gli utenti nel formato "- Nome Cognome (città)".
    Esempio: "- Mario Rossi (Milano)"
@@ -163,7 +163,7 @@ console.log(nuovoProdotto)
 utenti.forEach(utente => {
     console.log(`- ${utente.nome} ${utente.cognome} (${utente.città})`);
 });
-
+console.log('-------------------------------------');
 
 /* ESERCIZIO 8 — map a stringhe
    Usa map per creare nomiCompleti = ["Mario Rossi", "Anna Bianchi", ...].
@@ -174,7 +174,7 @@ utenti.forEach(utente => {
 const nomiCompleti = utenti.map(utente => `${utente.nome} ${utente.cognome}`);
 
 console.log(nomiCompleti);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 9 — map a oggetti
    Usa map per creare utentiPlus: array di oggetti dove ogni utente ha tutte
    le properties originali + una nuova property "descrizione" con valore
@@ -190,7 +190,7 @@ const utentiPlus = utenti.map(utente => ({
 }));
 
 console.log(utentiPlus[0]);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 10 — filter attivi
    Usa filter per ottenere solo gli utenti con attivo: true.
    Stampa l'array risultante.
@@ -200,7 +200,7 @@ console.log(utentiPlus[0]);
 const utentiAttivi = utenti.filter(utente => utente.attivo === true);
 
 console.log(utentiAttivi);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 11 — filter combinato
    Usa filter per ottenere solo gli utenti maggiorenni (eta >= 18) che vivono a Milano.
    Stampa l'array risultante.
@@ -210,7 +210,7 @@ console.log(utentiAttivi);
 const utentiMaggiorenni = utenti.filter(utente => utente.eta >= 18 && utente.città === 'Milano');
 
 console.log(utentiMaggiorenni);
-
+console.log('-------------------------------------');
 /* ESERCIZIO 12 — find
    Usa find per trovare il primo utente con id === 4.
    Stampa l'oggetto.
@@ -220,7 +220,7 @@ console.log(utentiMaggiorenni);
 const utenteTrovato = utenti.find(utente => utente.id === 4);
 
 console.log(utenteTrovato);
-
+console.log('-------------------------------------');
 
 /* ESERCIZIO 13 — reduce
    a) Usa reduce per calcolare l'età media (somma età / numero utenti). Stampa.
@@ -232,6 +232,7 @@ const totaleEta = utenti.reduce((totale, utente) => totale + utente.eta, 0);
 const etaMedia = totaleEta / utenti.length;
 
 console.log(etaMedia);
+console.log('-------------------------------------');
 
 /* ESERCIZIO 14 — sort
    a) Ordina gli utenti per eta crescente. Stampa l'array di nomi nell'ordine.
@@ -240,9 +241,13 @@ console.log(etaMedia);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 const etaCrescente = [...utenti].sort((a, b) => a.eta - b.eta);
+const alfabetico = [...utenti].sort((a, b) => a.nome.localeCompare(b.nome, "it"));
 
 console.log(etaCrescente.map(utente => utente.nome));
-
+console.log('-------------------------------------');
+console.log('ordine alfabetico');
+console.log(alfabetico.map(utente => utente.nome));
+console.log('-------------------------------------');
 /* ESERCIZIO 15 — Chaining
    Componi una catena di metodi che:
    - filtra gli utenti attivi
